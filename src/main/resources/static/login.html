@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Sign in &middot; Websocket Chat Application</title>
+    <link href="webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/login.css" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/A.style.css.pagespeed.cf.eQk9-CoeFP.css">
+    <style>
+        body{
+            background-image: url("https://cdn.pixabay.com/photo/2022/07/27/03/23/deer-7347041_960_720.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+
+<div class="container">
+    <div class="row justify-content-center mt-3">
+        <div class="col-md-6 col-lg-4" style="background: rgba(10,10,10, .7); position: absolute; top: 30%">
+            <div class="login-wrap p-0">
+                <form action="#" class="signin-form" method="post" action="login.html">
+                    <h3 class="mb-4 text-center form-signin-heading text-white">Login</h3>
+                    <div class="form-group input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="addon-1"><i class="glyphicon glyphicon-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Username" name="username" required="">
+                    </div>
+                    <div class="form-group input-group  flex-nowrap">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="addon-2"><i class="glyphicon glyphicon-lock"></i></span>
+                        </div>
+                        <input id="password-field" type="password" class="form-control" placeholder="Password"
+                               name="password" required="">
+                        <div class="input-group-append">
+                            <span toggle="#password-field" class="bi bi-eye toggle-password"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="form-control btn btn-primary submit px-3">Sign In</button>
+                    </div>
+                    <div class="form-group d-md-flex">
+                        <div class="w-50">
+                            <label class="checkbox-wrap checkbox-primary text-white">Remember Me
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="w-50 text-md-right">
+                            <a href="#" style="color: #fff">Forgot Password</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

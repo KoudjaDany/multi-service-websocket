@@ -8,7 +8,8 @@ import org.springframework.messaging.simp.stomp.StompHeaderAccessor;
 import org.springframework.messaging.support.ChannelInterceptor;
 import org.springframework.messaging.support.MessageHeaderAccessor;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -41,7 +42,9 @@ public class WebSocketChannelInterceptor implements ChannelInterceptor {
             String wsId = readWebSocketIdHeader(accessor);
             String sessionId = readSessionId(accessor);
             // authenticate the user and if that's successful add their user information to the headers
-            UsernamePasswordAuthenticationToken user = new UsernamePasswordAuthenticationToken(wsId, null);
+            //UsernamePasswordAuthenticationToken user = new UsernamePasswordAuthenticationToken(wsId, null);
+            Authentication user = SecurityContextHolder.getContext().getAuthentication();
+
             accessor.setUser(user);
             accessor.setHeader("connection-time", LocalDateTime.now().toString());
             log.info("User with authKey '{}', sw-id '{}', session '{}' make a Websocket connection and generated the user '{}'", apiKey, wsId, sessionId, user);
@@ -69,7 +72,7 @@ public class WebSocketChannelInterceptor implements ChannelInterceptor {
     private String readAuthKeyHeader(StompHeaderAccessor accessor) {
         final String authKey = accessor.getFirstNativeHeader(API_KEY_HEADER);
         if (authKey == null || authKey.trim().isEmpty()) {
-            throw new AuthenticationCredentialsNotFoundException("Auth Key Not Found");
+            //throw new AuthenticationCredentialsNotFoundException("Auth Key Not Found");
         }
         return authKey;
     }
@@ -77,7 +80,7 @@ public class WebSocketChannelInterceptor implements ChannelInterceptor {
     private String readWebSocketIdHeader(StompHeaderAccessor accessor) {
         final String wsId = accessor.getFirstNativeHeader(WS_ID_HEADER);
         if (wsId == null || wsId.trim().isEmpty()) {
-            throw new AuthenticationCredentialsNotFoundException("Web Socket ID Header not found");
+           // throw new AuthenticationCredentialsNotFoundException("Web Socket ID Header not found");
         }
         return wsId;
     }

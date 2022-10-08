@@ -17,7 +17,7 @@ public class WebSocketDisconnectHandler implements ApplicationListener<SessionDi
     @Override
     public void onApplicationEvent(SessionDisconnectEvent event) {
         Optional.ofNullable(event.getUser()).ifPresent(user ->
-                log.info("USer {} disconnected from session id {}", user.getName(), event.getSessionId())
+                log.info("User {} disconnected from session id {}", user.getName(), event.getSessionId())
         );
     }
 

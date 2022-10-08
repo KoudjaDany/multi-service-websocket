@@ -34,17 +34,17 @@ public class WebSocketConfiguration implements WebSocketMessageBrokerConfigurer 
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry registry) {
-        //registry.enableSimpleBroker("/queue", "/topic");
-        registry.enableStompBrokerRelay("/queue", "/topic")
-                .setRelayHost(brokerHost)
-                .setRelayPort(brokerPort)
-                .setClientLogin(brokerUser)
-                .setClientPasscode(brokerPassword)
-                .setSystemLogin(brokerUser)
-                .setSystemPasscode(brokerPassword)
-                .setUserDestinationBroadcast("/topic/unresolved-user")
-                .setUserRegistryBroadcast("/topic/log-user-registry")
-        ;
+        registry.enableSimpleBroker("/queue", "/topic");
+       //registry.enableStompBrokerRelay("/queue", "/topic")
+       //        .setRelayHost(brokerHost)
+       //        .setRelayPort(brokerPort)
+       //        .setClientLogin(brokerUser)
+       //        .setClientPasscode(brokerPassword)
+       //        .setSystemLogin(brokerUser)
+       //        .setSystemPasscode(brokerPassword)
+       //        .setUserDestinationBroadcast("/topic/unresolved-user")
+       //        .setUserRegistryBroadcast("/topic/log-user-registry")
+       //;
 
         registry.setApplicationDestinationPrefixes("/app");
     }
